@@ -336,10 +336,81 @@ from selenium.webdriver.common.by import By
 
 
 ##1 dupa partial text
-s = Service(ChromeDriverManager().install())
-chrome = webdriver.Chrome(service=s)
-chrome.maximize_window()
-chrome.get('http://automationpractice.com/index.php?id_category=5&controller=category')
-chrome.find_element(By.XPATH, '//a[contains(text(), "Faded")]').click()##Process finished with exit code 0 yaay
-sleep(4)
-chrome.quit()
+# s = Service(ChromeDriverManager().install())
+# chrome = webdriver.Chrome(service=s)
+# chrome.maximize_window()
+# chrome.get('http://automationpractice.com/index.php?id_category=5&controller=category')
+# chrome.find_element(By.XPATH, '//a[contains(text(), "Faded")]').click()##Process finished with exit code 0 yaay
+# sleep(4)
+# chrome.quit()
+
+##1 cu SAU, folosind pipe |
+# s = Service(ChromeDriverManager().install())
+# chrome = webdriver.Chrome(service=s)
+# chrome.maximize_window()
+# chrome.get('http://automationpractice.com/index.php?controller=authentication&back=my-account')
+# s = chrome.find_element(By.XPATH,'//input[@name="email"]| //input[@name="email"]')# selecteaza primul rand de cod cu neme=email :) P.S. : sunt 2 pe pagina
+# s.clear()
+# s.send_keys('blabla@mail.com')
+# sleep(4)
+# chrome.quit()
+
+
+
+# 1 cu *
+# s = Service(ChromeDriverManager().install())
+# chrome = webdriver.Chrome(service=s)
+# chrome.maximize_window()
+# chrome.get('http://automationpractice.com/index.php?controller=authentication&back=my-account')
+# ss = chrome.find_element(By.XPATH, '//*[@name="email"]')
+# ss.clear()
+# ss.send_keys('blabla@mail.com')
+# sleep(4)
+# chrome.quit()
+
+# 1 in care le iei ca pe o lista de xpath si in python ajunge 1 element, deci cu (xpath)[1]
+# s = Service(ChromeDriverManager().install())
+# chrome = webdriver.Chrome(service=s)
+# chrome.maximize_window()
+# chrome.get('http://automationpractice.com/index.php?controller=authentication&back=my-account')
+# ss = chrome.find_elements(By.XPATH, '//*[@name="email"]')[1]
+# ss.clear()
+# ss.send_keys('blabla@mail.com')#uita-te la newsletter, jos
+# sleep(5)
+# chrome.quit()
+
+
+# 1 in care sa folosesti parent::& 1 in care sa folosesti fratele anterior sau de dupa (la alegere)
+# s = Service(ChromeDriverManager().install())
+# chrome = webdriver.Chrome(service=s)
+# chrome.maximize_window()
+# chrome.get('http://automationpractice.com/index.php?controller=authentication&back=my-account')
+# ahaaa=chrome.find_element(By.XPATH, '//input[@name="email"]/parent::div/following-sibling::div/span/input[@name="passwd"]')
+# ahaaa.clear()
+# ahaaa.send_keys('1234')#Process finished with exit code 0
+# sleep(5)
+# chrome.quit()
+
+# s = Service(ChromeDriverManager().install())
+# chrome = webdriver.Chrome(service=s)
+# chrome.maximize_window()
+# chrome.get('https://www.techlistic.com/p/selenium-practice-form.html')
+
+# # 1 functie ca si cea de la clasa prin care sa pot alege eu prin param cu ce element vreau sa interactionez.
+# def first_name(name):
+#     input = chrome.find_element(By.XPATH,'//input[@type="text"]')
+#     input.clear()
+#     input.send_keys(name)
+
+
+# def type():
+
+#     my_profession = chrome.find_elements(By.XPATH,f'// input[@type = "checkbox"]')[1]
+#     my_profession.click()
+
+
+# first_name('Alex')#Process finished with exit code 0
+# type()#Process finished with exit code 0
+
+# sleep(3)
+# chrome.quit()
